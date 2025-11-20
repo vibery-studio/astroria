@@ -1,0 +1,77 @@
+---
+const links = [
+    { name: "Solutions", href: "#solutions" },
+    { name: "Services", href: "#services" },
+    { name: "Case Studies", href: "#cases" },
+    { name: "About", href: "#about" },
+];
+---
+
+<nav
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    id="navbar"
+>
+    <div class="container-custom h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a
+            href="/"
+            class="text-2xl font-bold font-heading tracking-tight flex items-center gap-2"
+        >
+            <div
+                class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm"
+            >
+                B24
+            </div>
+            <span>Astroria<span class="text-cyan-400">.</span></span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-8">
+            {
+                links.map((link) => (
+                    <a
+                        href={link.href}
+                        class="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                    >
+                        {link.name}
+                    </a>
+                ))
+            }
+        </div>
+
+        <!-- CTA -->
+        <div class="hidden md:block">
+            <a
+                href="#contact"
+                class="px-5 py-2.5 text-sm font-semibold text-black bg-white rounded-full hover:bg-cyan-400 transition-colors duration-300"
+            >
+                Get Consultation
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button (Visual only for now) -->
+        <button class="md:hidden text-white">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<style>
+    #navbar {
+        background: rgba(5, 5, 5, 0.7);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+</style>

@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+
+const { title = "Bitrix24 Implementation Services | Enterprise Automation" } =
+    Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta
+            name="description"
+            content="Expert Bitrix24 implementation, customization, and training services. Transform your business operations with a unified workspace."
+        />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="bg-dark-900 text-white antialiased selection:bg-primary-500 selection:text-white overflow-x-hidden"
+    >
+        <slot />
+    </body>
+</html>
