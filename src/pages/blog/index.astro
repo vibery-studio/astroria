@@ -6,6 +6,8 @@ import Footer from '../../components/Footer.astro';
 
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <SiteLayout title="Blog | Astroria - Bitrix24 Insights & Case Studies">
@@ -49,8 +51,9 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                 })}
               </time>
               
+              
               <h2 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
-                <a href={`/blog/${post.slug}`} class="hover:underline">
+                <a href={`${base}blog/${post.slug}`} class="hover:underline">
                   {post.data.title}
                 </a>
               </h2>
@@ -62,7 +65,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
               <div class="flex items-center justify-between pt-4 border-t border-white/5">
                 <span class="text-sm text-gray-500">{post.data.author}</span>
                 <a 
-                  href={`/blog/${post.slug}`}
+                  href={`${base}blog/${post.slug}`}
                   class="text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2"
                 >
                   Read More <span>→</span>
