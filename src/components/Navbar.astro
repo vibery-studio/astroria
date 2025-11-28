@@ -1,9 +1,11 @@
 ---
+const base = import.meta.env.BASE_URL || "/";
+
 const links = [
-    { name: "Services", href: "#services" },
-    { name: "Blog", href: "blog" },
-    { name: "Case Studies", href: "#cases" },
-    { name: "About", href: "#about" },
+    { name: "Services", href: `${base}#services` },
+    { name: "Blog", href: `${base}blog` },
+    { name: "Case Studies", href: `${base}#cases` },
+    { name: "About", href: `${base}#about` },
 ];
 ---
 
@@ -14,7 +16,7 @@ const links = [
     <div class="container-custom h-20 flex items-center justify-between">
         <!-- Logo -->
         <a
-            href="/"
+            href={base}
             class="text-2xl font-bold font-heading tracking-tight flex items-center gap-2"
         >
             <div
@@ -42,7 +44,7 @@ const links = [
         <!-- CTA -->
         <div class="hidden md:block">
             <a
-                href="#contact"
+                href={`${base}#contact`}
                 class="px-5 py-2.5 text-sm font-semibold text-black bg-white rounded-full hover:bg-cyan-400 transition-colors duration-300"
             >
                 Get Consultation
