@@ -1,9 +1,23 @@
 ---
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base === "/" ? "" : base.replace(/\/$/, "");
+const withBase = (path = "") => {
+    if (path === "") {
+        return normalizedBase || "/";
+    }
+
+    if (path.startsWith("#")) {
+        return `${normalizedBase || ""}/${path}`;
+    }
+
+    return `${normalizedBase}/${path.replace(/^\//, "")}`;
+};
+
 const links = [
-    { name: "Services", href: "#services" },
-    { name: "Blog", href: "blog" },
-    { name: "Case Studies", href: "#cases" },
-    { name: "About", href: "#about" },
+    { name: "Services", href: withBase("#services") },
+    { name: "Blog", href: withBase("blog") },
+    { name: "Case Studies", href: withBase("#cases") },
+    { name: "About", href: withBase("#about") },
 ];
 ---
 
@@ -13,10 +27,10 @@ const links = [
 >
     <div class="container-custom h-20 flex items-center justify-between">
         <!-- Logo -->
-        <a
-            href="/"
-            class="text-2xl font-bold font-heading tracking-tight flex items-center gap-2"
-        >
+            <a
+                href={withBase()}
+                class="text-2xl font-bold font-heading tracking-tight flex items-center gap-2"
+            >
             <div
                 class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm"
             >
@@ -42,7 +56,7 @@ const links = [
         <!-- CTA -->
         <div class="hidden md:block">
             <a
-                href="#contact"
+                href={withBase("#contact")}
                 class="px-5 py-2.5 text-sm font-semibold text-black bg-white rounded-full hover:bg-cyan-400 transition-colors duration-300"
             >
                 Get Consultation
